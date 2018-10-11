@@ -81,11 +81,11 @@ public class NettyClient implements Runnable, Sender<Req> {
 	 * @param req
 	 */
 	@Override
-	public void send(Req req) throws Exception {
+	public boolean send(Req req) throws Exception {
 		if (sender == null) {
 			throw new RuntimeException("连接 admin 失败");
 		}
-		sender.send(req);
+		return sender.send(req);
 	}
 
 }
